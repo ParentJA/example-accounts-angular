@@ -1,0 +1,26 @@
+{
+  "name": "example-accounts",
+  "version": "0.1.0",
+  "authors": [
+    "Jason Parent <jason.a.parent@gmail.com>"
+  ],
+  "description": "",
+  "main": "./example-accounts.js",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "gulpfile.js",
+    "node_modules",
+    "bower_components",
+    "src",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.5.0",
+    "angular-cookies": "~1.5.0"
+  }
+}
