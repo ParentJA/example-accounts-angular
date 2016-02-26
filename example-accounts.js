@@ -120,18 +120,18 @@
     };
   }
 
-  function LogInController($scope, loadAllService, logInService) {
+  function LogInController($scope, logInService) {
     $scope.username = null;
     $scope.password = null;
 
     $scope.logIn = function logIn() {
-      logInService($scope.username, $scope.password).then(loadAllService);
+      return logInService($scope.username, $scope.password);
     };
   }
 
   angular.module("example-accounts")
     .directive("logIn", [logIn])
-    .controller("LogInController", ["$scope", "loadAllService", "logInService", LogInController]);
+    .controller("LogInController", ["$scope", "logInService", LogInController]);
 
 })(window, window.angular);
 (function (window, angular, undefined) {
@@ -147,17 +147,15 @@
     };
   }
 
-  function LogOutController($scope, FriendModel, logOutService) {
+  function LogOutController($scope, logOutService) {
     $scope.logOut = function logOut() {
-      logOutService().then(function () {
-        FriendModel.clear();
-      });
+      return logOutService();
     };
   }
 
   angular.module("example-accounts")
     .directive("logOut", [logOut])
-    .controller("LogOutController", ["$scope", "FriendModel", "logOutService", LogOutController]);
+    .controller("LogOutController", ["$scope", "logOutService", LogOutController]);
 
 })(window, window.angular);
 (function (window, angular, undefined) {
@@ -179,18 +177,18 @@
     };
   }
 
-  function SignUpController($scope, loadAllService, signUpService) {
+  function SignUpController($scope, signUpService) {
     $scope.username = null;
     $scope.email = null;
     $scope.password = null;
 
     $scope.signUp = function signUp() {
-      signUpService($scope.username, $scope.email, $scope.password).then(loadAllService);
+      return signUpService($scope.username, $scope.email, $scope.password);
     };
   }
 
   angular.module("example-accounts")
     .directive("signUp", [signUp])
-    .controller("SignUpController", ["$scope", "loadAllService", "signUpService", SignUpController]);
+    .controller("SignUpController", ["$scope", "signUpService", SignUpController]);
 
 })(window, window.angular);
