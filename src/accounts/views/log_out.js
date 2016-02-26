@@ -11,16 +11,14 @@
     };
   }
 
-  function LogOutController($scope, FriendModel, logOutService) {
+  function LogOutController($scope, logOutService) {
     $scope.logOut = function logOut() {
-      logOutService().then(function () {
-        FriendModel.clear();
-      });
+      return logOutService();
     };
   }
 
   angular.module("example-accounts")
     .directive("logOut", [logOut])
-    .controller("LogOutController", ["$scope", "FriendModel", "logOutService", LogOutController]);
+    .controller("LogOutController", ["$scope", "logOutService", LogOutController]);
 
 })(window, window.angular);

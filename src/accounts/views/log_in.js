@@ -16,17 +16,17 @@
     };
   }
 
-  function LogInController($scope, loadAllService, logInService) {
+  function LogInController($scope, logInService) {
     $scope.username = null;
     $scope.password = null;
 
     $scope.logIn = function logIn() {
-      logInService($scope.username, $scope.password).then(loadAllService);
+      return logInService($scope.username, $scope.password);
     };
   }
 
   angular.module("example-accounts")
     .directive("logIn", [logIn])
-    .controller("LogInController", ["$scope", "loadAllService", "logInService", LogInController]);
+    .controller("LogInController", ["$scope", "logInService", LogInController]);
 
 })(window, window.angular);

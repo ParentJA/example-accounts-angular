@@ -17,18 +17,18 @@
     };
   }
 
-  function SignUpController($scope, loadAllService, signUpService) {
+  function SignUpController($scope, signUpService) {
     $scope.username = null;
     $scope.email = null;
     $scope.password = null;
 
     $scope.signUp = function signUp() {
-      signUpService($scope.username, $scope.email, $scope.password).then(loadAllService);
+      return signUpService($scope.username, $scope.email, $scope.password);
     };
   }
 
   angular.module("example-accounts")
     .directive("signUp", [signUp])
-    .controller("SignUpController", ["$scope", "loadAllService", "signUpService", SignUpController]);
+    .controller("SignUpController", ["$scope", "signUpService", SignUpController]);
 
 })(window, window.angular);
